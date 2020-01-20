@@ -15,7 +15,11 @@ rollNumber=$(( RANDOM%6 + 1 ))
 option=$(( RANDOM%3 ))
 case $option in
      $ladder)
+#UC-4
+     if [ $(( position + rollNumber )) -le $winPosition ]
+     then
      position=$(( position + rollNumber ));
+     fi
      ;;
      $snake)
      position=$(( position - rollNumber ));
