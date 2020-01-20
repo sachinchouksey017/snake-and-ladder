@@ -1,24 +1,32 @@
 #!/bin/bash -x
 
 #UC-1
-postion=0;
-
+position=0;
+winPosition=100;
+noPlay=0;
+ladder=1;
+snake=2;
+while [ $position -lt $winPosition ]
+do
 #UC-2
 rollNumber=$(( RANDOM%6 + 1 ))
 
 #UC-3 check for option
-noPlay=0;
-ladder=1;
-snake=2;
 option=$(( RANDOM%3 ))
 case $option in
      $ladder)
-     echo "lader is came"
+     position=$(( position + rollNumber ));
      ;;
      $snake)
-     echo "snake is came"
+     position=$(( position - rollNumber ));
+     if [ $position -lt 0 ]
+     then
+       position=0;
+     fi
      ;;
      $noPlay)
      echo "no play"
      ;;
 esac
+done
+echo $position
