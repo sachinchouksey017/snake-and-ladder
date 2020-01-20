@@ -6,6 +6,7 @@ winPosition=100;
 noPlay=0;
 ladder=1;
 snake=2;
+counter=0;
 while [ $position -lt $winPosition ]
 do
 #UC-2
@@ -32,5 +33,5 @@ case $option in
      echo "no play"
      ;;
 esac
+     Report[((counter++))]=$position
 done
-echo $position
